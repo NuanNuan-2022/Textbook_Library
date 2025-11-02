@@ -9,86 +9,91 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
+    padding: 15px;
   }
   h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
   }
   .textbooks-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(5, 1fr); /* 每行5个 */
+    gap: 8px; /* 卡片间距 */
+    justify-items: center;
   }
   .textbook-card {
     position: relative;
+    width: 100%;
+    max-width: 120px; /* 控制卡片宽度 */
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    transition: transform 0.25s, box-shadow 0.25s;
     cursor: pointer;
     background-color: #fff;
+    font-size: 0.8rem;
   }
   .textbook-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   }
   .textbook-card img {
     width: 100%;
     display: block;
-    transition: transform 0.3s;
+    height: auto; /* 高度自适应 */
+    transition: transform 0.25s;
   }
   .textbook-card:hover img {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
   .overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     background: rgba(0,0,0,0.6);
     color: #fff;
     text-align: center;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.25s;
+    font-size: 0.75rem;
   }
   .textbook-card:hover .overlay {
     opacity: 1;
   }
   .download-btn {
     display: inline-block;
-    padding: 6px 12px;
-    margin-top: 5px;
+    padding: 3px 6px;
+    margin-top: 3px;
     background-color: #1a73e8;
     color: #fff;
     text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    transition: background-color 0.25s;
   }
   .download-btn:hover {
     background-color: #0c54b8;
   }
   .lang-toggle {
     position: fixed;
-    top: 15px;
-    right: 15px;
-    padding: 6px 12px;
+    top: 12px;
+    right: 12px;
+    padding: 4px 8px;
     background-color: #1a73e8;
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 </style>
 </head>
 <body>
 
-<!-- Language Toggle Button -->
 <button class="lang-toggle" onclick="toggleLang()">English / 中文</button>
 
-<!-- Page Title -->
 <h1 data-zh="教材" data-en="My Textbooks">Textbooks</h1>
 
 <div class="textbooks-container">
@@ -96,9 +101,9 @@
   <div class="textbook-card">
     <img src="note1-cover.jpg" alt="Textbook 1"> <!-- 修改封面图片文件名 -->
     <div class="overlay">
-      <div data-zh="下载 教材 1" data-en="Download Textbook 1">Download Textbook 1</div>
+      <div data-zh="下载 Cambridge Lower Secondary Science Learners Book 9" data-en="Download Cambridge Lower Secondary Science Learners Book 9">Download Cambridge Lower Secondary Science Learners Book 9</div> <!-- 修改教材名字 -->
       <a class="download-btn" href="https://drive.google.com/file/d/1PHXhopAEdtVIWqTycj1sWfGFroeS0X7g/view?usp=drive_link" target="_blank" 
-         data-zh="从 Google 下载" data-en="Download from Google">Download from Google</a>
+         data-zh="从 Google 下载" data-en="Download from Google">Download from Google</a> 
          <!-- 替换 YOUR_LINK_HERE 为实际下载链接 -->
     </div>
   </div>
@@ -109,12 +114,12 @@
     <div class="overlay">
       <div data-zh="下载 教材 2" data-en="Download Textbook 2">Download Textbook 2</div>
       <a class="download-btn" href="YOUR_LINK_HERE" target="_blank" 
-         data-zh="从 Google 下载" data-en="Download from Google">Download from Google</a>
+         data-zh="从 Google 下载" data-en="Download from Google">Download from Google</a> 
          <!-- 替换 YOUR_LINK_HERE 为实际下载链接 -->
     </div>
   </div>
 
-  <!-- 可以继续复制这个 block 添加更多教材 -->
+  <!-- 继续复制添加更多教材 -->
 </div>
 
 <script>
