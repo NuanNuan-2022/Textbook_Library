@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Textbook Library</title>
+<title>Textbooks Download</title>
 <style>
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -13,56 +13,57 @@
   }
   h1 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
-  .notes-container {
+  .textbooks-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
   }
-  .note-card {
+  .textbook-card {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    background-color: #fff;
   }
-  .note-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  .textbook-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
   }
-  .note-card img {
+  .textbook-card img {
     width: 100%;
     display: block;
     transition: transform 0.3s;
   }
-  .note-card:hover img {
-    transform: scale(1.05);
+  .textbook-card:hover img {
+    transform: scale(1.03);
   }
   .overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     background: rgba(0,0,0,0.6);
     color: #fff;
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s;
   }
-  .note-card:hover .overlay {
+  .textbook-card:hover .overlay {
     opacity: 1;
   }
   .download-btn {
     display: inline-block;
-    padding: 10px 20px;
-    margin-top: 8px;
+    padding: 6px 12px;
+    margin-top: 5px;
     background-color: #1a73e8;
     color: #fff;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.9rem;
     transition: background-color 0.3s;
   }
   .download-btn:hover {
@@ -70,45 +71,54 @@
   }
   .lang-toggle {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 8px 14px;
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
     background-color: #1a73e8;
     color: #fff;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 0.9rem;
   }
 </style>
 </head>
 <body>
 
+<!-- Language Toggle Button -->
 <button class="lang-toggle" onclick="toggleLang()">English / 中文</button>
 
-<h1 data-zh="书籍" data-en="Textbooks">我的 Notes</h1>
+<!-- Page Title -->
+<h1 data-zh="教材" data-en="My Textbooks">Textbooks</h1>
 
-<div class="notes-container">
-  <div class="note-card">
-    <img src="note1-cover.jpg" alt="Note 1">
+<div class="textbooks-container">
+  <!-- Textbook Card 1 -->
+  <div class="textbook-card">
+    <img src="note1-cover.jpg" alt="Textbook 1"> <!-- 修改封面图片文件名 -->
     <div class="overlay">
-      <div data-zh="Download Cambridge Lower Secondary Science Learners Book 9" data-en="下载 Cambridge Lower Secondary Science Learners Book 9">下载 1</div>
-      <a class="download-btn" href="YOUR_LINK_HERE" target="_blank" data-zh="从 Google 下载" data-en="Download from Google">从 Google 下载</a>
+      <div data-zh="下载 教材 1" data-en="Download Textbook 1">Download Textbook 1</div>
+      <a class="download-btn" href="https://drive.google.com/file/d/1PHXhopAEdtVIWqTycj1sWfGFroeS0X7g/view?usp=drive_link" target="_blank" 
+         data-zh="从 Google 下载" data-en="Download from Google">Download from Google</a>
+         <!-- 替换 YOUR_LINK_HERE 为实际下载链接 -->
     </div>
   </div>
 
-  <div class="note-card">
-    <img src="note2-cover.jpg" alt="Note 2">
+  <!-- Textbook Card 2 -->
+  <div class="textbook-card">
+    <img src="textbook2-cover.jpg" alt="Textbook 2"> <!-- 修改封面图片文件名 -->
     <div class="overlay">
-      <div data-zh="下载 Note 2" data-en="Download Note 2">下载 Note 2</div>
-      <a class="download-btn" href="YOUR_LINK_HERE" target="_blank" data-zh="从 Google 下载" data-en="Download from Google">从 Google 下载</a>
+      <div data-zh="下载 教材 2" data-en="Download Textbook 2">Download Textbook 2</div>
+      <a class="download-btn" href="YOUR_LINK_HERE" target="_blank" 
+         data-zh="从 Google 下载" data-en="Download from Google">Download from Google</a>
+         <!-- 替换 YOUR_LINK_HERE 为实际下载链接 -->
     </div>
   </div>
 
-  <!-- 可以继续添加更多 notes -->
+  <!-- 可以继续复制这个 block 添加更多教材 -->
 </div>
 
 <script>
-  let lang = 'zh';
+  let lang = 'en'; // 默认英文
 
   function toggleLang() {
     lang = lang === 'zh' ? 'en' : 'zh';
