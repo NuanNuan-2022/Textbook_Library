@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>Files</title></head>
+<body>
+<h2>Download Course Materials</h2>
+
+<ul id="list"></ul>
+
+<script>
+async function listFolders(path) {
+  const res = await fetch(path);
+  const text = await res.text();
+  const div = document.createElement("div");
+  div.innerHTML = text;
+  return [...div.querySelectorAll("a")]
+    .map(a => a.getAttribute("href"))
+    .filter(x => !x.includes(".") && x !== "../");
+}
+
+async function run() {
+  const ul = document.getElementById("list");
+  const cats = await listFolders("split_files/");
+  cats.forEach(c => {
+    let li = document.createElement("li");
+    li.innerHTML = `<a href="split_files/${c}">${c.replace('/', '')}</a>`;
+    ul.appendChild(li);
+  });
+}
+run();
+</script>
+
+</body>
+</html>
